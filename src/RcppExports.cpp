@@ -20,9 +20,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// slr_rsquared
+double slr_rsquared(NumericVector x, NumericVector y);
+RcppExport SEXP _slrmodel_slr_rsquared(SEXP xSEXP, SEXP ySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
+    rcpp_result_gen = Rcpp::wrap(slr_rsquared(x, y));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_slrmodel_rcpp_hello", (DL_FUNC) &_slrmodel_rcpp_hello, 0},
+    {"_slrmodel_slr_rsquared", (DL_FUNC) &_slrmodel_slr_rsquared, 2},
     {NULL, NULL, 0}
 };
 

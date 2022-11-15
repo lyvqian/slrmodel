@@ -5,3 +5,7 @@ rcpp_hello <- function() {
     .Call(`_slrmodel_rcpp_hello`)
 }
 
+slr_rsquared <- function(x, y) {
+    .Call(`_slrmodel_slr_rsquared`, x, y)
+}
+
