@@ -1,18 +1,22 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-// This is a simple function using Rcpp that creates an R list
-// containing a character vector and a numeric vector.
-//
-// Learn more about how to use Rcpp at:
-//
-//   http://www.rcpp.org/
-//   http://adv-r.had.co.nz/Rcpp.html
-//
-// and browse examples of code using Rcpp at:
-//
-//   http://gallery.rcpp.org/
-//
+//' slr_rsquared
+//'
+//' @name slr_rsquared
+//'
+//' @description Gets the coefficients of the simple linear regression model
+//'
+//' @param x Predictor
+//' @param y Response
+//'
+//' @return the r squared of linear regression model for predictor x and response y
+//'
+//' @examples
+//' slr_rsquared(c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14),c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69))
+//'
+//' @export
+//'
 
 // [[Rcpp::export]]
 double slr_rsquared(NumericVector x, NumericVector y){
