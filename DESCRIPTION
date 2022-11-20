@@ -1,11 +1,10 @@
 Package: slrmodel
 Type: Package
-Title: What the Package Does (Title Case)
+Title: slrmodel is a package for fitting simple linear regression model to given predictor variable and response variable.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Leyuan Qian
+Maintainer: Leyuan Qian <lyqian@umich.edu>
+Description: The slrmodel package uses the method of least squares to find coefficients of the best fitting line for the given data and examine the overall fitness of the line.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
