@@ -56,7 +56,7 @@ The result of `slr_beta()` is a matrix with 2 rows and 4 columns. The upper row 
 The result of `slr_rsquared()` is R^2^, the coefficient of determination. It tells the proportion of variation in `y` that is explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
 With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best fitting line, which is ${\hat{y}}=-0.363+0.416x$ in this example: 
-```{r, echo = FALSE}
+```{r pressure, echo = FALSE}
 plot(iris$Petal.Length,iris$Petal.Width,xlab="The Petal lengths of iris flowers",ylab="The Petal widths of iris flowers")
 intercept = slr_beta(iris$Petal.Length,iris$Petal.Width)[1, 1]
 slope = slr_beta(iris$Petal.Length,iris$Petal.Width)[2, 1]
