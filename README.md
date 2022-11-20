@@ -29,8 +29,8 @@ ${\hat{\beta_1}}$ using the method of least squares, test the
 significance of (x,y) association, and evaluate the overall fitness of
 the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
-- `slr_beta()` creates a matrix of coefficients of the simple linear
-  regression model.
+- `slr_beta()` creates a matrix of coefficients of the best fitting
+  line.
 - `slr_rsquared()` calculates the coefficient of determination
   R<sup>2</sup>.
 
@@ -44,44 +44,37 @@ You can install the development version of slrmodel from
 devtools::install_github("lyvqian/slrmodel")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to use the slrmodel package:
 
 ``` r
 library(slrmodel)
+
+slr_beta(iris$Petal.Length,iris$Petal.Width) #slr_beta(x, y)
+#>         Estimate  Std. Error t statistic      p-value
+#> beta0 -0.3630755 0.039761990   -9.131221 4.699798e-16
+#> beta1  0.4157554 0.009582436   43.387237 4.675004e-86
+
+slr_rsquared(iris$Petal.Length,iris$Petal.Width) #slr_rsquared(x, y)
+#> [1] 0.9271098
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Both `slr_beta()` and `slr_rsquared()` have two arguments, `x` and `y`.
+`x` is a vector containing all observed predictors, while `y` is a
+vector containing all corresponding responses.
 
-``` r
-summary(iris)
-#>   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
-#>  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
-#>  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
-#>  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
-#>  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
-#>  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
-#>  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
-#>        Species  
-#>  setosa    :50  
-#>  versicolor:50  
-#>  virginica :50  
-#>                 
-#>                 
-#> 
-```
+The result of `slr_beta()` is a matrix with 2 rows and 4 columns. The
+upper row provides ${\hat{\beta_0}}$, the standard error of ${\beta_0}$,
+the t statistic for testing whether ${\hat{\beta_0}}$ significantly
+differs from 0, and the p value for determining the significance. The
+lower row provides the same coefficients for ${\hat{\beta_1}}$.
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+The result of `slr_rsquared()` is R<sup>2</sup>, the coefficient of
+determination. It tells the proportion of variation in `y` that is
+explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
-You can also embed plots, for example:
+With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best
+fitting line, which is ${\hat{y}}=-0.363+0.416x$ in this example:
 
 <img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
