@@ -10,7 +10,29 @@
 coverage](https://codecov.io/gh/lyvqian/slrmodel/branch/main/graph/badge.svg)](https://app.codecov.io/gh/lyvqian/slrmodel?branch=main)
 <!-- badges: end -->
 
-The goal of slrmodel is to …
+## Overview
+
+The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$
+is a model that summarizes the relationship between an independent
+variable `x` (predictor) a dependent variable `y` (response).
+${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated
+using observed data (x<sub>1</sub>,y<sub>1</sub>),
+(x<sub>2</sub>,y<sub>2</sub>),…, (x<sub>n</sub>,y<sub>n</sub>), and
+${\epsilon}$ is a random error term. Deriving the estimators
+${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares
+would help to obtain the best-fitting line
+${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$, that is, the straight line
+demonstrating the best approximation of the given set of data. The goal
+of slrmodel is to calculate the ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$
+using the method of least squares, test the significance of (x,y)
+association, and evaluate the overall fitness of the
+${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
+
+- `slr_beta()` creates a matrix of coefficients
+  (${\beta}$,$SE(\hat\beta)$, t statistic, and p-value) of the simple
+  linear regression model.
+- `slr_rsquared()` calculates the coefficient of determination
+  R<sup>2</sup>.
 
 ## Installation
 
@@ -28,21 +50,27 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(slrmodel)
-## basic example code
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?
 You can include R chunks like so:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+summary(iris)
+#>   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+#>  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+#>  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+#>  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+#>  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+#>  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+#>  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+#>        Species  
+#>  setosa    :50  
+#>  versicolor:50  
+#>  virginica :50  
+#>                 
+#>                 
+#> 
 ```
 
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`

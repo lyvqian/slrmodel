@@ -10,16 +10,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_hello
-List rcpp_hello();
-RcppExport SEXP _slrmodel_rcpp_hello() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello());
-    return rcpp_result_gen;
-END_RCPP
-}
 // slr_rsquared
 double slr_rsquared(NumericVector x, NumericVector y);
 RcppExport SEXP _slrmodel_slr_rsquared(SEXP xSEXP, SEXP ySEXP) {
@@ -34,7 +24,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_slrmodel_rcpp_hello", (DL_FUNC) &_slrmodel_rcpp_hello, 0},
     {"_slrmodel_slr_rsquared", (DL_FUNC) &_slrmodel_slr_rsquared, 2},
     {NULL, NULL, 0}
 };
