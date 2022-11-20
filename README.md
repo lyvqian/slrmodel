@@ -76,5 +76,4 @@ explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
 With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best
 fitting line, which is ${\hat{y}}=-0.363+0.416x$ in this example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
