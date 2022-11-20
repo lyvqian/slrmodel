@@ -40,7 +40,7 @@ devtools::install_github("lyvqian/slrmodel")
 
 ## Usage
 
-This is a basic example which shows you how to use the slrmodel package:
+This is a basic example which shows you how to use the slrmodel package. The built-in dataset `iris` is employed.
 
 ```{r}
 library(slrmodel)
