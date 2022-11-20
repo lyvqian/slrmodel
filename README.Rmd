@@ -45,9 +45,9 @@ This is a basic example which shows you how to use the slrmodel package:
 ```{r}
 library(slrmodel)
 
-slr_beta(iris$Petal.Length,iris$Petal.Width) #slr_beta(x, y)
+slr_beta(iris$Petal.Width,iris$Petal.Length) #slr_beta(x, y)
 
-slr_rsquared(iris$Petal.Length,iris$Petal.Width) #slr_rsquared(x, y)
+slr_rsquared(iris$Petal.Width,iris$Petal.Length) #slr_rsquared(x, y)
 ```
 Both `slr_beta()` and `slr_rsquared()` have two arguments, `x` and `y`. `x` is a vector containing all observed predictors, while `y` is a vector containing all corresponding responses.
 
@@ -55,10 +55,10 @@ The result of `slr_beta()` is a matrix with 2 rows and 4 columns. The upper row 
 
 The result of `slr_rsquared()` is R^2^, the coefficient of determination. It tells the proportion of variation in `y` that is explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
-With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best fitting line, which is ${\hat{y}}=-0.363+0.416x$ in this example: 
-```{r pressure, echo = FALSE}
-plot(iris$Petal.Length,iris$Petal.Width,xlab="The Petal lengths of iris flowers",ylab="The Petal widths of iris flowers")
-intercept = slr_beta(iris$Petal.Length,iris$Petal.Width)[1, 1]
-slope = slr_beta(iris$Petal.Length,iris$Petal.Width)[2, 1]
+With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example: 
+```{r, echo = FALSE}
+plot(iris$Petal.Width,iris$Petal.Length,xlab="The petal widths of iris flowers",ylab="The petal lengths of iris flowers")
+intercept = slr_beta(iris$Petal.Width,iris$Petal.Length)[1, 1]
+slope = slr_beta(iris$Petal.Width,iris$Petal.Length)[2, 1]
 abline(intercept, slope)
 ```

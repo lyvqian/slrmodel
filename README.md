@@ -51,12 +51,12 @@ This is a basic example which shows you how to use the slrmodel package:
 ``` r
 library(slrmodel)
 
-slr_beta(iris$Petal.Length,iris$Petal.Width) #slr_beta(x, y)
-#>         Estimate  Std. Error t statistic      p-value
-#> beta0 -0.3630755 0.039761990   -9.131221 4.699798e-16
-#> beta1  0.4157554 0.009582436   43.387237 4.675004e-86
+slr_beta(iris$Petal.Width,iris$Petal.Length) #slr_beta(x, y)
+#>       Estimate Std. Error t statistic      p-value
+#> beta0 1.083558 0.07296696    14.84998 4.043318e-31
+#> beta1 2.229940 0.05139623    43.38724 4.675004e-86
 
-slr_rsquared(iris$Petal.Length,iris$Petal.Width) #slr_rsquared(x, y)
+slr_rsquared(iris$Petal.Width,iris$Petal.Length) #slr_rsquared(x, y)
 #> [1] 0.9271098
 ```
 
@@ -75,5 +75,5 @@ determination. It tells the proportion of variation in `y` that is
 explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
 With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best
-fitting line, which is ${\hat{y}}=-0.363+0.416x$ in this example:
-<img src="man/figures/README-pressure-1.png" width="100%" />
+fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example:
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
