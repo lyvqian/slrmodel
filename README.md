@@ -75,5 +75,5 @@ determination. It tells the proportion of variation in `y` that is
 explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
 With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best
-fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example:
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example: ![Image
+text](man/figures/README-unnamed-chunk-3-1.png)
