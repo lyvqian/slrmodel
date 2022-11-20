@@ -14,6 +14,15 @@ knitr::opts_chunk$set(
 )
 ```
 
+This document introduces slrmodel’s basic set of functions, and shows how to apply them to the data you have.
+
 ```{r setup}
 library(slrmodel)
 ```
+
+##
+
+```{r}
+
+```
+
