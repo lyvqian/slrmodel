@@ -22,15 +22,15 @@ ${\epsilon}$ is a random error term. Deriving the estimators
 ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares
 would help to obtain the best-fitting line
 ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$, that is, the straight line
-demonstrating the best approximation of the given set of data. The goal
-of slrmodel is to calculate the ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$
-using the method of least squares, test the significance of (x,y)
-association, and evaluate the overall fitness of the
-${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
+demonstrating the best approximation of the given set of data.
 
-- `slr_beta()` creates a matrix of coefficients
-  (${\beta}$,$SE(\hat\beta)$, t statistic, and p-value) of the simple
-  linear regression model.
+The goal of slrmodel is to calculate the ${\hat{\beta_0}}$ and
+${\hat{\beta_1}}$ using the method of least squares, test the
+significance of (x,y) association, and evaluate the overall fitness of
+the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
+
+- `slr_beta()` creates a matrix of coefficients of the simple linear
+  regression model.
 - `slr_rsquared()` calculates the coefficient of determination
   R<sup>2</sup>.
 
