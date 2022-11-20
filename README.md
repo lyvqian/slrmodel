@@ -76,4 +76,4 @@ explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
 
 With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best
 fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example: ![Image
-text](man/figures/README-unnamed-chunk-3-1.png)
+text](https://github.com/lyvqian/slrmodel/raw/966ab6c6d02df3051a7209f65406d8c561e646f4/man/figures/README-unnamed-chunk-3-1.png)
