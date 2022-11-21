@@ -14,7 +14,7 @@ coverage](https://codecov.io/gh/lyvqian/slrmodel/branch/main/graph/badge.svg)](h
 
 The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$
 is a model that summarizes the relationship between an independent
-variable `x` (predictor) a dependent variable `y` (response).
+variable `x` (predictor) and a dependent variable `y` (response).
 ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated
 using observed data (x<sub>1</sub>,y<sub>1</sub>),
 (x<sub>2</sub>,y<sub>2</sub>),…, (x<sub>n</sub>,y<sub>n</sub>), and

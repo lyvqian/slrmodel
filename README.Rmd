@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$ is a model that summarizes the relationship between an independent variable `x` (predictor) a dependent variable `y` (response). ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (x~1~,y~1~), (x~2~,y~2~),..., (x~n~,y~n~), and ${\epsilon}$ is a random error term. Deriving the estimators ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares would help to obtain the best-fitting line ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$, that is, the straight line demonstrating the best approximation of the given set of data. 
+The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$ is a model that summarizes the relationship between an independent variable `x` (predictor) and a dependent variable `y` (response). ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (x~1~,y~1~), (x~2~,y~2~),..., (x~n~,y~n~), and ${\epsilon}$ is a random error term. Deriving the estimators ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares would help to obtain the best-fitting line ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$, that is, the straight line demonstrating the best approximation of the given set of data. 
 
 The goal of slrmodel is to calculate the ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ using the method of least squares, test the significance of (x,y) association, and evaluate the overall fitness of the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model. 
 
