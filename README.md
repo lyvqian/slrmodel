@@ -14,9 +14,9 @@ coverage](https://codecov.io/gh/lyvqian/slrmodel/branch/main/graph/badge.svg)](h
 
 The simple linear regression model
 $Y_i={\beta_0}+{\beta_1}X_i+{\epsilon_i}$ is a model that summarizes the
-relationship between an independent variable `X` (predictor) and a
-dependent variable `Y` (response). ${\beta_0}$ and ${\beta_1}$ are
-usually unknown and need to be estimated using observed data
+relationship between an independent variable X (predictor) and a
+dependent variable Y (response). ${\beta_0}$ and ${\beta_1}$ are usually
+unknown and need to be estimated using observed data
 (X<sub>1</sub>,Y<sub>1</sub>), (X<sub>2</sub>,Y<sub>2</sub>),…,
 (X<sub>n</sub>,Y<sub>n</sub>), and ${\epsilon_i}$ is a random error
 term.
@@ -30,9 +30,8 @@ ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ is also called the euqation
 of best-fitting line.
 
 The goal of slrmodel is to calculate ${\hat{\beta_0}}$ and
-${\hat{\beta_1}}$ using the method of least squares, test the
-significance of (X,Y) association under the fitted model
-${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$, and compute the proportion
+${\hat{\beta_1}}$ using the method of least squares for a set of (X,Y),
+test the significance of (X,Y) association, and compute the proportion
 of variation in Y that is explained by the model.
 
 - `slr_beta()` creates a matrix of coefficients of the fitted model.

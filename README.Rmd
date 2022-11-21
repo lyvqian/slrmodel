@@ -22,11 +22,11 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The simple linear regression model $Y_i={\beta_0}+{\beta_1}X_i+{\epsilon_i}$ is a model that summarizes the relationship between an independent variable `X` (predictor) and a dependent variable `Y` (response). ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (X~1~,Y~1~), (X~2~,Y~2~),..., (X~n~,Y~n~), and ${\epsilon_i}$ is a random error term. 
+The simple linear regression model $Y_i={\beta_0}+{\beta_1}X_i+{\epsilon_i}$ is a model that summarizes the relationship between an independent variable X (predictor) and a dependent variable Y (response). ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (X~1~,Y~1~), (X~2~,Y~2~),..., (X~n~,Y~n~), and ${\epsilon_i}$ is a random error term. 
 
 Deriving the estimators ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares would help to obtain the fitted model ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ (equivalently, $Y_i={\hat{\beta_0}}+{\hat{\beta_1}}X_i+{\hat{\epsilon_i}}$). The model is considered to best approximate the (X,Y) relationship, and thus ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ is also called the euqation of best-fitting line.
 
-The goal of slrmodel is to calculate ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ using the method of least squares, test the significance of (X,Y) association under the fitted model ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$, and compute the proportion of variation in Y that is explained by the model. 
+The goal of slrmodel is to calculate ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ using the method of least squares for a set of (X,Y), test the significance of (X,Y) association, and compute the proportion of variation in Y that is explained by the model. 
 
 * `slr_beta()` creates a matrix of coefficients of the fitted model. 
 * `slr_rsquared()` calculates the coefficient of determination R^2^.
