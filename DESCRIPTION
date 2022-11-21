@@ -8,7 +8,7 @@ Description: The slrmodel package uses the method of least squares to find coeff
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp (>= 1.0.9)
+Imports: Rcpp (>= 1.0.9), bench
 LinkingTo: Rcpp
 Suggests: 
     covr,
