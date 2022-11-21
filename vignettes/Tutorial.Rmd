@@ -14,43 +14,23 @@ knitr::opts_chunk$set(
 )
 ```
 
-This document introduces the usage slrmodel’s basic set of functions and compares the slrmodel functions with the lm() function. To learn more about the lm() function, please refer to [lm() RDucumentation page](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm).
+This document introduces the usage slrmodel’s basic set of functions and compares the slrmodel functions with the `lm()` function. To learn more about the `lm()` function, please use `?lm` in R or refer to [lm( ) RDucumentation page](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm).
 
 ```{r setup}
 library(slrmodel)
 ```
 
 ## Introduction
-The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$ is a model that summarizes the relationship between a predictor variable `x` and a repsonse variable `y`. ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (x~1~,y~1~), (x~2~,y~2~),…, (x~n~,y~n~), and ${\epsilon}$ is a random error term. When the estimators are calculated using 
+The simple linear regression model $Y_i={\beta_0}+{\beta_1}X_i+{\epsilon_i}$ is a model that summarizes the relationship between a predictor variable X and a response variable Y. ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (X~1~,Y~1~), (X~2~,Y~2~),…, (X~n~,Y~n~). ${\epsilon_i}'s$ are independent and identically distributed normal random variables with mean 0 and variance ${\sigma^2}$. 
 
-Deriving the estimators 
- and 
- by the method of least squares would help to obtain the best-fitting line 
-, that is, the straight line demonstrating the best approximation of the given set of data.
+The method of least squares is commonly used to find ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ that make ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ (equivalently, $Y_i={\hat{\beta_0}}+{\hat{\beta_1}}X_i+{\hat{\epsilon_i}}$) a best-fitting regression line for X and Y. For more details details regarding this method, please refer to the "Least Squares Method" section of [Simple Linear Regression Document](https://rpubs.com/karflisi/slr)) 
 
-The goal of slrmodel is to calculate the 
- and 
- using the method of least squares, test the significance of (x,y) association, and evaluate the overall fitness of the 
- model.
-
-slrmodel aims to provide simple functions for each basic verb of data manipulation. These verbs can be organised into three categories based on the component of the dataset that they work with:
-
-The simple linear regression model  is a model that summarizes the relationship between an independent variable x (predictor) a dependent variable y (response).  and  are usually unknown and need to be estimated using observed data (x1,y1), (x2,y2),…, (xn,yn), and  is a random error term. Deriving the estimators 
- and 
- by the method of least squares would help to obtain the best-fitting line 
-, that is, the straight line demonstrating the best approximation of the given set of data.
-
-The goal of slrmodel is to calculate the 
- and 
- using the method of least squares, test the significance of (x,y) association, and evaluate the overall fitness of the 
- model.
-
-* `slr_beta()`
-* `slr_rsquared()`
+slrmodel aims to calculate the ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ using the method of least squares for a set of (X,Y), test the significance of (X,Y) association, and evaluate the overall fitness of the regression model $Y_i={\hat{\beta_0}}+{\hat{\beta_1}}X_i+{\epsilon_i}$.
+* `slr_beta()` creates a matrix containing coefficients of the regression model. 
+* `slr_rsquared()` calculates the coefficient of determination, R^2^, to evaluate the fitness of the model.
 
 ## Usage
-
-This section is a detailed example of how to apply slrmodel in practices.
+This section shows how to use the slrmodel functions and how to interpret the results. 
 
 ### Data: iris
 To explore the functions of slrmodel, we will use the dataset `iris`. This dataset contains 150 cases (rows) and 5 variables (columns). More information about the dataset can be found in `?iris`.
@@ -58,34 +38,80 @@ To explore the functions of slrmodel, we will use the dataset `iris`. This datas
 dim(iris)
 head(iris)
 ```
-Before continuing to analyze the data you must:
 
-* Determine your target predictor variable and response variable.
+### Create a matrix of simple linear regression model coefficients with `slr_beta()`
+`slr_beta()` allows you to generate a matrix with 2 rows and 4 columns containing ${\hat{\beta_0}}$, ${\hat{\beta_1}}$, the standard error of the two estimates, the t statistic for testing whether the estimates significantly differ from 0, and the p value for making the statistical decision. 
 
-* Extract the data of interest from the full dataset.
+The first argument `x` is a vector containing the data of the predictor variable. The second argument `y` is a vector containing the data of the predictor variable. 
 
-* Store the set of predictor variables and the set of response variables in two separate vectors.
-
-### Create a matrix of simple linear regression coefficients with `slr_beta()`
-
-`slr_beta()` allows you to select a subset of rows in a data frame. Like all single verbs, the first argument is the tibble (or data frame). The second and subsequent arguments refer to variables within that data frame, selecting rows where the expression is TRUE.
+For example, we can fit a simple linear regression model for the petal widths (predictor) and the petal lengths (response) of the iris flowers and obtain the coefficients of the model with:  
 ```{r}
+slr_beta(x=iris$Petal.Width,y=iris$Petal.Length)
+```
+The "Estimate" of beta0 gives the value of ${\hat{\beta_0}}$, which is the intercept of the linear model. It tells us the mean value of Y when X=0. Sometimes it may have an awkward interpretation. For example, in this case, we would never see petals with width=0. The "Estimate" of beta1 gives the value of ${\hat{\beta_1}}$, which is the slope of the linear regression model. It describes the mean change in Y per unit change in X. In this example, it is estimated that petal length would increase by 2.23 cm for 1 cm increase in the petal width.
 
+The "Std. Error" represents the standard error of ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$. 
+
+The "t statistic" is a measure of how many standard deviations the estimate is away from 0. If the t statistic is relatively far away from 0, we would expect that the estimate is significantly different from 0. However, we need to look at p-value for more precise statistical decision.
+
+The "p-value" is usually compared with a given significance level ${\alpha}$, say ${\alpha}=0.05$. When $p>{\alpha}$, we have insufficient evidence that the estimate is non-zero. In contrast, if $p<{\alpha}$, we can conclude that the estimate is significantly different from 0. Therefore, if the p-value for ${\beta_1}$ is larger than ${\alpha}$, X and Y exhibit no significant linear association. If p-value for ${\beta_1}$ is smaller than ${\alpha}$, X and Y have a significant linear association. In this example, assuming ${\alpha}=0.05$, we can conclude that the petal length is significantly associated with the petal width.
+
+To avoid awkward interpretation, we can center the covariate at its mean:
+```{r}
+mean(iris$Petal.Width)
+centered_petal_width=iris$Petal.Width-mean(iris$Petal.Width)
+petal_length=iris$Petal.Length
+slr_beta(centered_petal_width,petal_length)
+```
+The intercept changes. It now tells us that the mean value of petal length is 3.758 cm when petal width is at its mean value, 1.199 cm.
+
+Inverting the order of arguments would change the result, so you must not mix up your predictor and response variables when implementing the function:
+```{r}
+slr_beta(iris$Petal.Length,iris$Petal.Width)
 ```
 
 ### Calculate the coefficient of determination with `slr_rsquared()`
-`slr_rsquared()` allows you to select a subset of rows in a data frame. Like all single verbs, the first argument is the tibble (or data frame). The second and subsequent arguments refer to variables within that data frame, selecting rows where the expression is TRUE.
-```{r}
+`slr_rsquared()` provides the coefficient of determination R^2^, which is the proportion of the variation in Y explained by the linear regression model. 
 
+`slr_rsquared()` has the same arguments as `slr_beta()`. 
+
+Again, we fit a simple linear regression model for the petal widths (predictor) and the petal lengths (response) of the iris flowers:  
+```{r}
+slr_rsquared(x=iris$Petal.Width,y=iris$Petal.Length)
 ```
+92.71% of the variation in petal length is explained by the petal width.
 
 ## A comparison between functions of slrmodel and the `lm()` function
+This section examines correctness and efficiency of the slrmodel functions.
 
+`lm()` function is used to fit linear models, including simple linear regression models and multiple linear regression models. `lm(y~x)` model the response variable `y` as a linear function of the predictor variable `x`. 
+
+Running `slr_beta(x,y)` is basically the same as running `summary(lm(y~x))$coef`:
 ```{r}
-if(!require(bench)) install.packages("bench",repos = "http://cran.us.r-project.org")
-bench::mark(
-  slr_rsquared_result=slr_rsquared(iris$Petal.Width,iris$Petal.Length),
-  lm_result=summary(lm(Petal.Length~Petal.Width,data=iris))$r.squared
+all.equal(
+  matrix(slr_beta(iris$Petal.Width,iris$Petal.Length),nrow=2,ncol=4,dimnames=NULL),
+  matrix(summary(lm(Petal.Length~Petal.Width,data=iris))$coef,nrow=2,ncol=4,dimnames=NULL) 
 )
 ```
 
+Running `slr_rsquared(x,y)` is bascially the same as running `summary(lm(y~x))$r.squared`:
+```{r}
+all.equal(
+  slr_rsquared(iris$Petal.Width,iris$Petal.Length),
+  summary(lm(Petal.Length~Petal.Width,data=iris))$r.squared
+)
+```
+
+`slr_beta()` was written by R code, and `slr_rsquared()` was written by C++ code. slrmodel functions is like a simplified version of `lm()` and only generates selected results of `lm()`. In general, slrmodel functions seem to be very efficient compared to `lm()`:
+```{r}
+if(!require(bench)) install.packages("bench",repos = "http://cran.us.r-project.org")
+bench::mark(
+  slr_beta_result=matrix(slr_beta(iris$Petal.Width,iris$Petal.Length),nrow=2,ncol=4,dimnames=NULL),
+  lm_beta_result=matrix(summary(lm(Petal.Length~Petal.Width,data=iris))$coef,nrow=2,ncol=4,dimnames=NULL) 
+)
+
+bench::mark(
+  slr_rsquared_result=slr_rsquared(iris$Petal.Width,iris$Petal.Length),
+  lm_rsquared_result=summary(lm(Petal.Length~Petal.Width,data=iris))$r.squared
+)
+```
