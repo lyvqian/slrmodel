@@ -14,13 +14,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-This document introduces slrmodel’s basic set of functions, and shows how to apply them to the data you have.
+This document introduces slrmodel’s basic set of functions and shows how to apply them to the data you have.
 
 ```{r setup}
 library(slrmodel)
 ```
 
-##
+## Data: iris
+To explore the functions of slrmodel, we will use the dataset `iris`. This dataset contains 150 cases (rows) and 5 variables (columns). More information about the dataset can be found in `?iris`.
+```{r}
+iris
+```
 
 ```{r}
 
