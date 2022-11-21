@@ -22,11 +22,13 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$ is a model that summarizes the relationship between an independent variable `x` (predictor) and a dependent variable `y` (response). ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (x~1~,y~1~), (x~2~,y~2~),..., (x~n~,y~n~), and ${\epsilon}$ is a random error term. Deriving the estimators ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares would help to obtain the best-fitting line ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$, that is, the straight line demonstrating the best approximation of the given set of data. 
+The simple linear regression model $Y_i={\beta_0}+{\beta_1}X_i+{\epsilon_i}$ is a model that summarizes the relationship between an independent variable `X` (predictor) and a dependent variable `Y` (response). ${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated using observed data (X~1~,Y~1~), (X~2~,Y~2~),..., (X~n~,Y~n~), and ${\epsilon_i}$ is a random error term. 
 
-The goal of slrmodel is to calculate the ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ using the method of least squares, test the significance of (x,y) association, and evaluate the overall fitness of the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model. 
+Deriving the estimators ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares would help to obtain the fitted model ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ (equivalently, $Y_i={\hat{\beta_0}}+{\hat{\beta_1}}X_i+{\hat{\epsilon_i}}$). The model is considered to best approximate the (X,Y) relationship, and thus ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ is also called the euqation of best-fitting line.
 
-* `slr_beta()` creates a matrix of coefficients of the best fitting line. 
+The goal of slrmodel is to calculate ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ using the method of least squares, test the significance of (X,Y) association under the fitted model ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$, and compute the proportion of variation in Y that is explained by the model. 
+
+* `slr_beta()` creates a matrix of coefficients of the fitted model. 
 * `slr_rsquared()` calculates the coefficient of determination R^2^.
 
 ## Installation
@@ -53,9 +55,9 @@ Both `slr_beta()` and `slr_rsquared()` have two arguments, `x` and `y`. `x` is a
 
 The result of `slr_beta()` is a matrix with 2 rows and 4 columns. The upper row provides ${\hat{\beta_0}}$, the standard error of ${\beta_0}$, the t statistic for testing whether ${\hat{\beta_0}}$ significantly differs from 0, and the p value for determining the significance. The lower row provides the same coefficients for ${\hat{\beta_1}}$.
 
-The result of `slr_rsquared()` is R^2^, the coefficient of determination. It tells the proportion of variation in `y` that is explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
+The result of `slr_rsquared()` is R^2^, the coefficient of determination. It tells the proportion of variation in `Y` that is explained by the ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ model.
 
-With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example: 
+With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best fitting line, which is ${\hat{Y}}=1.08+2.23X$ in this example: 
 ![Image text](https://github.com/lyvqian/slrmodel/raw/966ab6c6d02df3051a7209f65406d8c561e646f4/man/figures/README-unnamed-chunk-3-1.png)
 ```{r, include = FALSE}
 plot(iris$Petal.Width,iris$Petal.Length,xlab="The petal widths of iris flowers",ylab="The petal lengths of iris flowers")

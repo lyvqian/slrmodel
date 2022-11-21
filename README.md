@@ -12,25 +12,30 @@ coverage](https://codecov.io/gh/lyvqian/slrmodel/branch/main/graph/badge.svg)](h
 
 ## Overview
 
-The simple linear regression model $y={\beta_0}+{\beta_1}x+{\epsilon}$
-is a model that summarizes the relationship between an independent
-variable `x` (predictor) and a dependent variable `y` (response).
-${\beta_0}$ and ${\beta_1}$ are usually unknown and need to be estimated
-using observed data (x<sub>1</sub>,y<sub>1</sub>),
-(x<sub>2</sub>,y<sub>2</sub>),…, (x<sub>n</sub>,y<sub>n</sub>), and
-${\epsilon}$ is a random error term. Deriving the estimators
-${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the method of least squares
-would help to obtain the best-fitting line
-${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$, that is, the straight line
-demonstrating the best approximation of the given set of data.
+The simple linear regression model
+$Y_i={\beta_0}+{\beta_1}X_i+{\epsilon_i}$ is a model that summarizes the
+relationship between an independent variable `X` (predictor) and a
+dependent variable `Y` (response). ${\beta_0}$ and ${\beta_1}$ are
+usually unknown and need to be estimated using observed data
+(X<sub>1</sub>,Y<sub>1</sub>), (X<sub>2</sub>,Y<sub>2</sub>),…,
+(X<sub>n</sub>,Y<sub>n</sub>), and ${\epsilon_i}$ is a random error
+term.
 
-The goal of slrmodel is to calculate the ${\hat{\beta_0}}$ and
+Deriving the estimators ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$ by the
+method of least squares would help to obtain the fitted model
+${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ (equivalently,
+$Y_i={\hat{\beta_0}}+{\hat{\beta_1}}X_i+{\hat{\epsilon_i}}$). The model
+is considered to best approximate the (X,Y) relationship, and thus
+${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ is also called the euqation
+of best-fitting line.
+
+The goal of slrmodel is to calculate ${\hat{\beta_0}}$ and
 ${\hat{\beta_1}}$ using the method of least squares, test the
-significance of (x,y) association, and evaluate the overall fitness of
-the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
+significance of (X,Y) association under the fitted model
+${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$, and compute the proportion
+of variation in Y that is explained by the model.
 
-- `slr_beta()` creates a matrix of coefficients of the best fitting
-  line.
+- `slr_beta()` creates a matrix of coefficients of the fitted model.
 - `slr_rsquared()` calculates the coefficient of determination
   R<sup>2</sup>.
 
@@ -74,9 +79,9 @@ differs from 0, and the p value for determining the significance. The
 lower row provides the same coefficients for ${\hat{\beta_1}}$.
 
 The result of `slr_rsquared()` is R<sup>2</sup>, the coefficient of
-determination. It tells the proportion of variation in `y` that is
-explained by the ${\hat{y}}={\hat{\beta_0}}+{\hat{\beta_1}}x$ model.
+determination. It tells the proportion of variation in `Y` that is
+explained by the ${\hat{Y}}={\hat{\beta_0}}+{\hat{\beta_1}}X$ model.
 
 With ${\hat{\beta_0}}$ and ${\hat{\beta_1}}$, we can plot the best
-fitting line, which is ${\hat{y}}=1.08+2.23x$ in this example: ![Image
+fitting line, which is ${\hat{Y}}=1.08+2.23X$ in this example: ![Image
 text](https://github.com/lyvqian/slrmodel/raw/966ab6c6d02df3051a7209f65406d8c561e646f4/man/figures/README-unnamed-chunk-3-1.png)
