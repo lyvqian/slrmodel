@@ -43,8 +43,14 @@ You can install the development version of slrmodel from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("lyvqian/slrmodel")
-devtools::install_github("lyvqian/slrmodel", build_vignettes = T) # install with vignettes
+devtools::install_github("lyvqian/slrmodel") 
+```
+
+You can also install the package with vignettes:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("lyvqian/slrmodel", build_vignettes = T)
 ```
 
 ## Usage
@@ -66,9 +72,9 @@ slr_rsquared(x = iris$Petal.Width, y = iris$Petal.Length)
 
 Both `slr_beta()` and `slr_rsquared()` have two arguments, `x` and `y`.
 `x` is a vector containing all observed predictors, while `y` is a
-vector containing all corresponding responses. In this case, `x` is a
+vector containing all corresponding responses. In this example, `x` is a
 vector containing all values of petal widths of iris flowers, and `y` is
-a vector containing all values of corresponding petal lengths.
+a vector containing all values of petal lengths.
 
 The result of `slr_beta()` is a matrix with 2 rows and 4 columns. The
 upper row provides ${\hat{\beta_0}}$, the standard error of
