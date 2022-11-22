@@ -5,7 +5,7 @@
 #'
 #' @name slr_rsquared
 #'
-#' @description slr_rsquared( ) fits simple linear regression (slr) model to given predictor variable and response variable. It returns the coefficient of determination (R squared) of the model. The coefficient of determination evaluates the proportion of variance in the response that can be explained by the predictor.
+#' @description slr_rsquared( ) fits simple linear regression (slr) model to given predictor variable and response variable. It returns the coefficient of determination (R squared) of the model. The coefficient of determination evaluates the proportion of variance in the response that can be explained by the predictor, indicating the overall fitness of the model.
 #'
 #' @usage slr_rsquared(x, y)
 #'
@@ -13,7 +13,7 @@
 #' @param y  a vector containing all the responses
 #'
 #' @section Note:
-#' The order of elements in the vectors should match.
+#' The order of elements in the vectors must match.
 #' That is, the i-th element of x vector and the i-th element of y vector should be a paired observation of (X,Y).
 #'
 #' @return A decimal number that is typically larger than 0 but smaller than 1.
@@ -28,7 +28,7 @@
 #' slr_rsquared(x = c(5.68, 7.11, 9.50, 10.61, 16.17, 14.53, 17.33),
 #'              y = c(4.17, 5.99, 7.87, 8.63, 10.23, 14.89, 16.32))
 #'
-#' ## Use the built-in iris dataset
+#' ## Use the R built-in "iris" dataset
 #' ## Model the response variable Petal.Length as a linear function of the
 #' ## predictor variable Petal.width
 #' slr_rsquared(x = iris$Petal.Width, y = iris$Petal.Length)
