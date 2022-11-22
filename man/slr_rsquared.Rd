@@ -2,19 +2,42 @@
 % Please edit documentation in R/RcppExports.R
 \name{slr_rsquared}
 \alias{slr_rsquared}
-\title{slr_rsquared}
+\title{Return the coefficient of determination of the fitted slr model}
+\usage{
+slr_rsquared(x, y)
+}
 \arguments{
-\item{x}{Predictor}
+\item{x}{a vector containing all the predictors}
 
-\item{y}{Response}
+\item{y}{a vector containing all the responses}
 }
 \value{
-the r squared of linear regression model for predictor x and response y
+A decimal number that is typically larger than 0 but smaller than 1.
 }
 \description{
-Gets the coefficients of the simple linear regression model
+slr_rsquared( ) fits simple linear regression (slr) model to given predictor variable and response variable. It returns the coefficient of determination (R squared) of the model. The coefficient of determination evaluates the proportion of variance in the response that can be explained by the predictor.
 }
+\section{Note}{
+
+The order of elements in the vectors should match.
+That is, the i-th element of x vector and the i-th element of y vector should be a paired observation of (X,Y).
+}
+
+\section{See Also}{
+
+The function that gives the key coefficients (intercept and slope) of the fitted slr model: slr_beta( ).
+}
+
 \examples{
-slr_rsquared(c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14),c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69))
+## Use two randomly generated vectors as arguments
+## Observations are (5.68, 4.17), (7.11, 5.99), (9.50,7.87), (10.61,8.63),
+## (16.17, 10.23), (14.53, 14.89), (17.33, 16.32)
+slr_rsquared(x = c(5.68, 7.11, 9.50, 10.61, 16.17, 14.53, 17.33),
+             y = c(4.17, 5.99, 7.87, 8.63, 10.23, 14.89, 16.32))
+
+## Use the built-in iris dataset
+## Model the response variable Petal.Length as a linear function of the
+## predictor variable Petal.width
+slr_rsquared(x = iris$Petal.Width, y = iris$Petal.Length)
 
 }

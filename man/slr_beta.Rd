@@ -2,7 +2,7 @@
 % Please edit documentation in R/slr_beta.R
 \name{slr_beta}
 \alias{slr_beta}
-\title{slr_beta}
+\title{Create a matrix of simple linear regression model coefficients}
 \usage{
 slr_beta(x, y)
 }

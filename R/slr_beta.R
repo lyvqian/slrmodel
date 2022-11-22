@@ -1,4 +1,4 @@
-#'slr_beta
+#'Create a matrix of simple linear regression model coefficients
 #'
 #'Gets the coefficients of the simple linear regression model
 #'
