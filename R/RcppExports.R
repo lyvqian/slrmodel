@@ -16,7 +16,7 @@
 #' The order of elements in the vectors must match.
 #' That is, the i-th element of x vector and the i-th element of y vector should be a paired observation of (X,Y).
 #'
-#' @return A decimal number that is typically larger than 0 but smaller than 1.
+#' @return A decimal number that is typically larger than 0 and smaller than 1.
 #'
 #' @section See Also:
 #' The function that gives the key coefficients (intercept and slope) of the fitted slr model: slr_beta( ).

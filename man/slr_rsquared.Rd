@@ -12,7 +12,7 @@ slr_rsquared(x, y)
 \item{y}{a vector containing all the responses}
 }
 \value{
-A decimal number that is typically larger than 0 but smaller than 1.
+A decimal number that is typically larger than 0 and smaller than 1.
 }
 \description{
 slr_rsquared( ) fits simple linear regression (slr) model to given predictor variable and response variable. It returns the coefficient of determination (R squared) of the model. The coefficient of determination evaluates the proportion of variance in the response that can be explained by the predictor, indicating the overall fitness of the model.
