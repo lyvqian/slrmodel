@@ -36,6 +36,7 @@ The function that evaluates the overall fitness of the slr model: slr_rsquared( 
 ## (16.17, 10.23), (14.53, 14.89), (17.33, 16.32)
 slr_beta(x = c(5.68, 7.11, 9.50, 10.61, 16.17, 14.53, 17.33),
             y = c(4.17, 5.99, 7.87, 8.63, 10.23, 14.89, 16.32))
+
 ## Use the R built-in "iris" dataset
 ## Model the response variable Petal.Length as a linear function of the
 ## predictor variable Petal.width
